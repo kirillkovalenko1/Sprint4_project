@@ -18,15 +18,14 @@ public class CheckAccordionTextTest extends BaseTest {
     @Parameterized.Parameters
     public static Object[][] getAccordionHeader() {
         return new Object[][] {
-                { "accordion__heading-8",true},
-                { "accordion__heading-9",true},
-                { "accordion__heading-10",true},
-                { "accordion__heading-11",true},
-                { "accordion__heading-12",true},
-                { "accordion__heading-13",true},
-                { "accordion__heading-14",true},
-                { "accordion__heading-15",true},
-                { "accordion__heading-16",false},
+                { "accordion__heading-0",true},
+                { "accordion__heading-1",true},
+                { "accordion__heading-2",true},
+                { "accordion__heading-3",true},
+                { "accordion__heading-4",true},
+                { "accordion__heading-5",true},
+                { "accordion__heading-6",true},
+                { "accordion__heading-7",true},
         };
     }
     @Test
@@ -35,7 +34,7 @@ public class CheckAccordionTextTest extends BaseTest {
         driver.get(MAIN_PAGE_URL);
         mainPage.cookiesAcceptButtonClick();
         mainPage.accordionItemButtonScrollTo(accordionHeader);
-        //mainPage.accordionItemButtonClick(accordionHeader);
-        //Assert.assertEquals(mainPage.isDataAccordionTextExpandedVisible(accordionHeader),expected);
+        mainPage.accordionItemButtonClick(accordionHeader);
+        Assert.assertEquals(mainPage.isDataAccordionTextExpandedVisible(accordionHeader),expected);
     }
 }
