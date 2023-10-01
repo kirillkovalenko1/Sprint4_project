@@ -11,11 +11,7 @@ import java.time.Duration;
 
 public class MainPage {
     protected WebDriver driver;
-    private By cookiesAcceptButton = By.id("rcc-confirm-button");
-    private By accordionItemButton = By.xpath(".//div[@data-accordion-component='AccordionItemButton']");
-    private By isDataAccordionTextExpanded = By.xpath(".//div[@id='accordion__panel-0']/p");
-    private By orderButtonHeader = By.xpath(".//div[@class='Header_Nav__AGCXC']/button[@class='Button_Button__ra12g']");
-    private By orderButtonFinish = By.xpath(".//div[@class='Home_FinishButton__1_cWm']/button[@class='Button_Button__ra12g Button_UltraBig__UU3Lp']");
+    private final By cookiesAcceptButton = By.id("rcc-confirm-button");
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
@@ -49,10 +45,8 @@ public class MainPage {
                 .until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath(xpath))));
         return driver.findElement(By.xpath(xpath)).isDisplayed();
     }
-
-    public void orderButtonClick(By orderButton){
-        driver.findElement(orderButton).click();
+    public void orderButtonClick(String orderButton) {
+        driver.findElement(By.xpath(orderButton)).click();
     }
-
 
 }

@@ -35,6 +35,6 @@ public class CheckAccordionTextTest extends BaseTest {
         mainPage.cookiesAcceptButtonClick();
         mainPage.accordionItemButtonScrollTo(accordionHeader);
         mainPage.accordionItemButtonClick(accordionHeader);
-        Assert.assertEquals(mainPage.isDataAccordionTextExpandedVisible(accordionHeader),expected);
+        Assert.assertEquals(expected,mainPage.isDataAccordionTextExpandedVisible(accordionHeader));
     }
 }
