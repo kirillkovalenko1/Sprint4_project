@@ -8,11 +8,11 @@ import po.OrderPage;
 import static constants.MainUrl.MAIN_PAGE_URL;
 
 @RunWith(Parameterized.class)
-public class OrderPageTest extends BaseTest {
+public class OrderPageE2ETest extends BaseTest {
     private final String orderButton;
     private final String expected;
 
-    public OrderPageTest(String orderButton, String expected) {
+    public OrderPageE2ETest(String orderButton, String expected) {
         this.orderButton = orderButton;
         this.expected = expected;
     }
@@ -42,6 +42,6 @@ public class OrderPageTest extends BaseTest {
         orderPage.checkRentalPeriodDropDown();
         orderPage.colorCheckboxClick();
         orderPage.confirmationButtonClick();
-        Assert.assertEquals(expected,orderPage.finalOrderPageIsDisplayed());
+        Assert.assertEquals(expected, orderPage.finalOrderPageIsDisplayed());
     }
 }

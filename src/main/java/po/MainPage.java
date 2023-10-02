@@ -1,9 +1,6 @@
 package po;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -12,6 +9,9 @@ import java.time.Duration;
 public class MainPage {
     protected WebDriver driver;
     private final By cookiesAcceptButton = By.id("rcc-confirm-button");
+    private final By mainPageHomeHeader = By.cssSelector("div[class='Home_Header__iJKdX']");
+    private final By yaPageHomeHeader = By.cssSelector("img[alt='Yandex']");
+
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
@@ -47,6 +47,11 @@ public class MainPage {
     }
     public void orderButtonClick(String orderButton) {
         driver.findElement(By.xpath(orderButton)).click();
+    }
+    public boolean checkMainPageHomeHeader(){
+        new WebDriverWait(driver, Duration.ofSeconds(5))
+                .until(ExpectedConditions.elementToBeClickable(mainPageHomeHeader));
+        return driver.findElement(mainPageHomeHeader).isDisplayed();
     }
 
 }
