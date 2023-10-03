@@ -28,22 +28,22 @@ public class OrderPage {
         this.driver = driver;
     }
 
-    public void fillFirstNameForOrder() {
+    public void fillFirstNameForOrder(String firstNameForOrderValue) {
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.elementToBeClickable(firstNameForOrder));
-        driver.findElement(firstNameForOrder).sendKeys("ТестовоеИмя");
+        driver.findElement(firstNameForOrder).sendKeys(firstNameForOrderValue);
     }
 
-    public void fillLastNameForOrder() {
+    public void fillLastNameForOrder(String lastNameForOrderValue) {
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.elementToBeClickable(lastNameForOrder));
-        driver.findElement(lastNameForOrder).sendKeys("ТестоваяФамилия");
+        driver.findElement(lastNameForOrder).sendKeys(lastNameForOrderValue);
     }
 
-    public void fillAddressForOrder() {
+    public void fillAddressForOrder(String addressForOrderValue) {
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.elementToBeClickable(addressForOrder));
-        driver.findElement(addressForOrder).sendKeys("Тестовый адрес 1 кв.1");
+        driver.findElement(addressForOrder).sendKeys(addressForOrderValue);
     }
 
     public void fillMetroStationForOrder() {
@@ -54,10 +54,10 @@ public class OrderPage {
         driver.findElement(metroStationForOrder).sendKeys(Keys.RETURN);
     }
 
-    public void fillPhoneNumberForOrder() {
+    public void fillPhoneNumberForOrder(String phoneNumberForOrderValue) {
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.elementToBeClickable(phoneNumberForOrder));
-        driver.findElement(phoneNumberForOrder).sendKeys("8999111999111");
+        driver.findElement(phoneNumberForOrder).sendKeys(phoneNumberForOrderValue);
     }
 
     public void middleNextButtonClick() {
@@ -66,10 +66,10 @@ public class OrderPage {
         driver.findElement(middleNextButton).click();
     }
 
-    public void fillDatePickerForOrder() {
+    public void fillDatePickerForOrder(String datePickerForOrderValue) {
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.elementToBeClickable(datePickerForOrder));
-        driver.findElement(datePickerForOrder).sendKeys("22.12.2022");
+        driver.findElement(datePickerForOrder).sendKeys(datePickerForOrderValue);
         driver.findElement(datePickerForOrder).sendKeys(Keys.RETURN);
     }
 

@@ -7,25 +7,25 @@ import static constants.MainUrl.MAIN_PAGE_URL;
 
 @RunWith(Parameterized.class)
 public class CheckAccordionTextTest extends BaseTest {
-    private final String accordionHeader;
+    private final String accordionValue;
     private final boolean expected;
 
     public CheckAccordionTextTest(String accordionHeader, boolean expected) {
-        this.accordionHeader = accordionHeader;
+        this.accordionValue = accordionHeader;
         this.expected = expected;
     }
 
     @Parameterized.Parameters
     public static Object[][] getAccordionHeader() {
         return new Object[][] {
-                { "accordion__heading-0",true},
-                { "accordion__heading-1",true},
-                { "accordion__heading-2",true},
-                { "accordion__heading-3",true},
-                { "accordion__heading-4",true},
-                { "accordion__heading-5",true},
-                { "accordion__heading-6",true},
-                { "accordion__heading-7",true},
+                { "Сколько это стоит? И как оплатить?",true},
+                { "Хочу сразу несколько самокатов! Так можно?",true},
+                { "Как рассчитывается время аренды?",true},
+                { "Можно ли заказать самокат прямо на сегодня?",true},
+                { "Можно ли продлить заказ или вернуть самокат раньше?",true},
+                { "Вы привозите зарядку вместе с самокатом?",true},
+                { "Можно ли отменить заказ?",true},
+                { "Я жизу за МКАДом, привезёте?",true},
         };
     }
     @Test
@@ -33,8 +33,8 @@ public class CheckAccordionTextTest extends BaseTest {
         MainPage mainPage = new MainPage(driver);
         driver.get(MAIN_PAGE_URL);
         mainPage.cookiesAcceptButtonClick();
-        mainPage.accordionItemButtonScrollTo(accordionHeader);
-        mainPage.accordionItemButtonClick(accordionHeader);
-        Assert.assertEquals(expected,mainPage.isDataAccordionTextExpandedVisible(accordionHeader));
+        mainPage.accordionItemButtonScrollTo(accordionValue);
+        mainPage.accordionItemButtonClick(accordionValue);
+        Assert.assertEquals(expected,mainPage.isDataAccordionTextExpandedVisible(accordionValue));
     }
 }
