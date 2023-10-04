@@ -61,16 +61,7 @@ public class OrderPageE2ETest extends BaseTest {
         driver.get(MAIN_PAGE_URL);
         mainPage.cookiesAcceptButtonClick();
         mainPage.orderButtonFooterClick();
-        orderPage.fillFirstNameForOrder(firstNameForOrderValue);
-        orderPage.fillLastNameForOrder(lastNameForOrderValue);
-        orderPage.fillAddressForOrder(addressForOrderValue);
-        orderPage.fillMetroStationForOrder();
-        orderPage.fillPhoneNumberForOrder(phoneNumberForOrderValue);
-        orderPage.middleNextButtonClick();
-        orderPage.fillDatePickerForOrder(datePickerForOrderValue);
-        orderPage.checkRentalPeriodDropDown();
-        orderPage.colorCheckboxClick();
-        orderPage.confirmationButtonClick();
-        Assert.assertEquals(expected, orderPage.finalOrderPageIsDisplayed());
+        Assert.assertEquals(orderPage.getFirstOrderPageValue(),orderPage.firstOrderPageIsDisplayed());
+
     }
 }

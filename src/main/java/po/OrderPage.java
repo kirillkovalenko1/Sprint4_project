@@ -23,6 +23,8 @@ public class OrderPage {
     private final By confirmationButton = By.cssSelector("button[class='Button_Button__ra12g Button_Middle__1CSJM']");
     private final By finalOrderPage = By.cssSelector("div[class='Order_ModalHeader__3FDaJ']");
     private final By redirectScooterButton = By.cssSelector("img[alt='Scooter']");
+    private final By firstOrderPage = By.xpath(".//div[@class='Order_Header__BZXOb']");
+    private final String firstOrderPageValueString = "Для кого самокат";
 
     public OrderPage(WebDriver driver) {
         this.driver = driver;
@@ -102,4 +104,13 @@ public class OrderPage {
                 .until(ExpectedConditions.elementToBeClickable(redirectScooterButton));
         driver.findElement(redirectScooterButton).click();
     }
+    public String firstOrderPageIsDisplayed(){
+        new WebDriverWait(driver, Duration.ofSeconds(5))
+                .until(ExpectedConditions.elementToBeClickable(firstOrderPage));
+        return driver.findElement(firstOrderPage).getText();
+    }
+    public String getFirstOrderPageValue (){
+        return firstOrderPageValueString;
+    }
+
 }
